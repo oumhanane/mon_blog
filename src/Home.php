@@ -1,6 +1,6 @@
 <?php  
 
-namespace Oumha\MonBlog;
+namespace App;
 
 class Home {
     public function sayHello(){

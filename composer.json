@@ -2,7 +2,7 @@
     "name": "oumha/mon_blog",
     "autoload": {
         "psr-4": {
-            "Oumha\\MonBlog\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [

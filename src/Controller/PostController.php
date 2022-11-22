@@ -1,10 +1,31 @@
 <?php
 
-namespace Oumha\MonBlog\Controller;
+namespace App\Controller;
 
-final class PostController {
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
+
+final class PostController extends AbstractController {
+
 	public function indexAction() {
-		return "L'index du controller postController";
+        $posts = [
+            [
+                "id" => 1,
+                "title" => "Titre1",
+                "description" => "Description1",
+            ],[
+                "id" => 2,
+                "title" => "Titre2",
+                "description" => "Description2",
+            ],[
+                "id" => 3,
+                "title" => "Titre3",
+                "description" => "Description3",
+            ],
+        ];
+
+        $this->render('post/index.html.twig', ['posts' => $posts]);
+
 	}
 
 	/**

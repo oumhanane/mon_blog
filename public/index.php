@@ -1,33 +1,34 @@
 <?php
 
-use Oumha\MonBlog\Controller\HomeController;
-use Oumha\MonBlog\Controller\PostController;
-use Oumha\MonBlog\Controller\UserController;
-use Oumha\MonBlog\Home;
+use App\Controller\HomeController;
+use App\Controller\PostController;
+use App\Controller\UserController;
+use App\Home;
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
-$pathInfo = $_SERVER['PATH_INFO'];
+// $pathInfo = $_SERVER['PATH_INFO'];
 $uri = $_SERVER['REQUEST_URI'];
-// var_dump($pathInfo, $uri);
+// var_dump($_SERVER);
+// die();
 
 /**
  * route => /nomRoute?action=nomAction&id=entityId
  *
- * nomRoute => determine le controller à instanciser
+ * nomRoute => determine le controller à instancier
  * action => determine l'action du controller à exécuter
- * id => determine l'entité sur lequel l'action doit être éxécuté
+ * id => determine l'entité sur laquelle l'action doit être éxécutée 
  *
  * Exemple:
- * 1. /posts?action=list
- * 1. /posts?action=show&id=1
- * 1. /posts?action=create
- * 1. /posts?action=edit&id=1
- * 1. /posts?action=delete&id=1
+ * 1. /posts?action=list              ['action' => 'list']
+ * 1. /posts?action=show&id=1         ['action' => 'show', 'id' => 1]
+ * 1. /posts?action=create            ['action' => 'create']
+ * 1. /posts?action=edit&id=1         ['action' => 'edit', 'id' => 1]
+ * 1. /posts?action=delete&id=1       ['action' => 'delete', 'id' => 1]
  */
 
 // Gestion des routes
-switch ($pathInfo) {
+switch ($uri) {
 	case '/posts':
 		$controller = new PostController();
 		break;
@@ -50,7 +51,8 @@ if (isset($_GET['action'])) {
 }
 
 $action = $action . 'Action';
-
+// var_dump($controller, $action);
+// die();
 if (method_exists($controller, $action)) {
 	echo $controller->$action();
 } else {

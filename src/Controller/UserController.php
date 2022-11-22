@@ -1,21 +1,21 @@
 <?php
 
-namespace Oumha\MonBlog\Controller;
+namespace App\Controller;
 
 final class UserController {
 	public function listUsersAction() {
 
 	}
 
-	public function shoUserAction($userId) {
+	public function showUserAction($userId) {
 
 	}
 
-	public function creatUserAction() {
+	public function createUserAction() {
 
 	}
 
-	public function ediUserAction() {
+	public function editUserAction() {
 
 	}
 }

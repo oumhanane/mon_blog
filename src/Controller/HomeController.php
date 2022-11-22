@@ -1,7 +1,10 @@
 <?php
 
-namespace Oumha\MonBlog\Controller;
+namespace App\Controller;
 
-final class HomeController {
-
+final class HomeController extends AbstractController
+{
+    public function indexAction () {
+        $this->render('home/index.html.twig');
+    }
 }

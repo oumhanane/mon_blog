@@ -1,0 +1,14 @@
+section {
+    height: 350px; 
+    background-color: rgb(247, 240, 240);
+}
+
+.titre {
+    text-align: center;
+    font-size: 2em;
+}
+
+.avatar {
+    height: 250px;
+    /* text-align: center; */
+}

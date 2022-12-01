@@ -12,15 +12,21 @@ final class PostController extends AbstractController {
             [
                 "id" => 1,
                 "title" => "Titre1",
-                "description" => "Description1",
+                "author" => "auteur1",
+				"content" => "content1",
+				"date_update" => "Créé le",
             ],[
                 "id" => 2,
                 "title" => "Titre2",
-                "description" => "Description2",
+                "author" => "auteur2",
+				"content" => "content1",
+				"date_update" => "Créé le",
             ],[
                 "id" => 3,
                 "title" => "Titre3",
-                "description" => "Description3",
+                "author" => "auteur3",
+				"content" => "content1",
+				"date_update" => "Créé le",
             ],
         ];
 

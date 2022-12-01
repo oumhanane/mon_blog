@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
+use App\ModelAbstract;
 
 final class PostController extends AbstractController {
 
@@ -35,7 +36,13 @@ final class PostController extends AbstractController {
 	}
 
 	/**
+	 * Récupération des posts
+	 */
+
+
+	/**
 	 * Renvoi la liste des posts
+	 *
 	 * @return string
 	 */
 	public function listAction() {

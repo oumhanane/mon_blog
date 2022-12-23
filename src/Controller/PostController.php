@@ -4,38 +4,33 @@ namespace App\Controller;
 
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
+use App\ModelAbstract;
+use App\Model\PostModel;
 
 final class PostController extends AbstractController {
 
 	public function indexAction() {
-        $posts = [
-            [
-                "id" => 1,
-                "title" => "Titre1",
-                "author" => "auteur1",
-				"content" => "content1",
-				"date_update" => "Créé le",
-            ],[
-                "id" => 2,
-                "title" => "Titre2",
-                "author" => "auteur2",
-				"content" => "content1",
-				"date_update" => "Créé le",
-            ],[
-                "id" => 3,
-                "title" => "Titre3",
-                "author" => "auteur3",
-				"content" => "content1",
-				"date_update" => "Créé le",
-            ],
-        ];
+		
+		// Se connecter à la bdd 
+		// Faire un select pour récupérer tous les articles et les affecter à la variable $posts
 
+
+		$postModel = new PostModel();
+		$posts = $postModel->findAll();
+		// var_dump($posts);
+		// die();
         $this->render('post/index.html.twig', ['posts' => $posts]);
 
 	}
 
 	/**
+	 * Récupération des posts
+	 */
+
+
+	/**
 	 * Renvoi la liste des posts
+	 *
 	 * @return string
 	 */
 	public function listAction() {
@@ -49,7 +44,12 @@ final class PostController extends AbstractController {
 	 * @return string
 	 */
 	public function showAction() {
-		return "Le show du controller postController";
+		$idPost = $_GET['id'];
+		$postModel = new PostModel();
+		$post = $postModel->findById($idPost);
+		//var_dump($_GET);
+		//die();
+		$this->render('post/show.html.twig', ['post' => $post]);
 	}
 
 	/**

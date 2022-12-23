@@ -28,6 +28,8 @@ $uri = $_SERVER['REQUEST_URI'];
  */
 
 // Gestion des routes
+$uri = explode('?',$uri)[0];
+
 switch ($uri) {
 	case '/posts':
 		$controller = new PostController();

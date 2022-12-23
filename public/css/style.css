@@ -3,11 +3,16 @@ body {
 }
 
 section {
-    height: 350px; 
+    height: 350px;
     background-color: rgb(247, 240, 240);
 }
 
-.titre {
+.titre1 {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.titre2 {
     text-align: center;
     font-size: 2em;
 }
@@ -27,4 +32,13 @@ footer {
     background-color: rgb(226, 205, 178);
     /* height: 70px; */
 
+}
+
+.card {
+    background-color: antiquewhite;
+}
+
+.section3 {
+    height: 690px;
+    background-color: antiquewhite;
 }

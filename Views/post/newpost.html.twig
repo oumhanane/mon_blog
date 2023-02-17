@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<div class="nveaupost">
+		<div class="container" >
+			<form action="/posts?action=create" method="post">
+					<div>
+						<label for="title" class="form-label mt-4">Titre</label>
+						<input name="title" type="text" class="form-control" id="title" required>
+					</div>
+					<div>
+						<label for="chapo" class="form-label mt-4">Chapô</label>
+						<input name="chapo" type="text" class="form-control" id="chapo" required>
+					</div>
+					<div>
+						<label for="content" class="form-label mt-4">Contenu</label>
+						<textarea name="content" class="form-control" id="content" rows="6"></textarea>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="author" class="form-label mt-4">Auteur</label>
+							<input name="author" type="text" class="form-control" id="author" required>
+						</div>	
+						<div class="col-md-6">
+							<label for="created_at" class="form-label mt-4">Date</label>
+							<input name="created_at" type="date" class="form-control" id="created_at" required>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary rounded mt-3">Valider</button>
+			</form>
+		</div>
+	</div>
+
+{% endblock %}

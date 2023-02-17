@@ -6,7 +6,7 @@
 		<div class="container pt-5">
 			<div class="row">
 				<div class="col-lg-2 text-center">
-					<img class="avatar" src="avatar_femme.jpg" alt="avatar de femme">
+					<img class="avatar" src="images/avatar_femme_voilee.jpg" alt="avatar de femme">
 				</div>
 				<div class="col-lg-10 text-center">
 					<h1 class="titre">Saliha Ichou</h1>
@@ -28,5 +28,35 @@
 		</div>
 	</section>
 
+	<div class="fondpost">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6 mb-5">
+					<form method="post" action="#">
+							<legend>Me contacter</legend>
+							<div>
+								<label for="emailAddress" class="form-label mt-4">Adresse email</label>
+								<input name="emailAddress" type="email" class="form-control" id="emailAddress" placeholder="Votre adresse email">
+							</div>
+							<div class="row g-3">
+								<div class="col">
+									<label for="firstname" class="form-label mt-4">Prénom</label>
+									<input name="firstname" type="text" class="form-control" id="firstname" placeholder="Votre prénom">
+								</div>
+								<div class="col">
+									<label for="lastname" class="form-label mt-4">Nom</label>
+									<input name="lastname" type="text" class="form-control" id="lastname" placeholder="Votre nom">
+								</div>
+							</div>
+							<div>
+								<label for="message" class="form-label mt-4">Message</label>
+								<textarea name="message" class="form-control" id="message" rows="5" placeholder="Votre message"></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary rounded mt-3">Envoyer</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	{% endblock %}

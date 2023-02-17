@@ -1,15 +1,44 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-
-    <div class="section3">
-        <h5 class="card-title pt-3">{{ post.title }}</h5>
-        <p class="card-text">{{ post.content }}</p>
-        <p class="card-text">publié le    
-            {{ post.getDateUpdated }}</p>
-        <p class="card-text">par 
-            {{ post.author }}</p>
-        <h6>Commentaires</h6>
+<div class="fondpost">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="section3">
+                <h5 class="card-title pt-3">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content }}</p>
+                <p class="card-text">publié le    
+                    {{ post.getDateUpdated }}</p>
+                <p class="card-text">par 
+                    {{ post.author }}</p>
+                <h4>Commentaires</h4>
+                
+                <div class="col-md-8 col-lg-6">
+                    <div class="card shadow-0 border">
+                        <div class="card mb-4">
+                        {% for comment in comments %}
+                        <div class="card-body p-4">              
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                <p>{{ comment.content }}</p>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row align-items-center">
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="25"
+                                        height="25" />
+                                        <p class="small mb-0 ms-2">{{ comment.author}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>    
+            </div>
+        </div>
     </div>
+</div>
+
+
 
 {% endblock %}

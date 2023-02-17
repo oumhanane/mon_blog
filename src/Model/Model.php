@@ -1,12 +1,12 @@
 <?php
-namespace App\Models;
+// namespace App\Model;
 
-abstract class Model 
-{
-    protected $pdo;
+// abstract class Model 
+// {
+//     protected $pdo;
 
-    public function __construct()
-    {
-    $this->pdo = connect();
-    }
-}
+//     public function __construct()
+//     {
+//     $this->pdo = connect();
+//     }
+// }

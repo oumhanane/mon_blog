@@ -22,16 +22,13 @@ section {
 }
 
 .section2 {
-    height: 500px;
+    height: 450px;
     background-color: antiquewhite;
 }
 
 footer {
     text-align: center;
-    /* font: white; */
     background-color: rgb(226, 205, 178);
-    /* height: 70px; */
-
 }
 
 .card {
@@ -39,6 +36,24 @@ footer {
 }
 
 .section3 {
-    height: 690px;
+    background-color: antiquewhite;
+}
+
+.fondpost {
+    background-color: antiquewhite;
+}
+
+.nveaupost {
+    height: 700px;
+    background-color: antiquewhite;
+}
+
+.fondposts {
+    height: 700px;
+    background-color: antiquewhite;
+}
+
+.nvouser {
+    height: 700px;
     background-color: antiquewhite;
 }

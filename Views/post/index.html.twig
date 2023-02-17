@@ -2,19 +2,23 @@
 
 {% block content %}
 
-	<div class="card">
-		<div class="card-header">
-			<h2>Nos derniers articles</h2>
-		</div>
-		<div "card-body">
-			{% for post in posts %}
-				<h5 class="card-title pt-3">{{ post.title }}</h5>
-				<p class="card-text">{{ post.chapo }}</p>
-				<p class="card-text">publié le {{ post.getDateUpdated}}</p>
-				<p class="card-text">par {{ post.author }}</p>
-				{# <a href="{{ path }}" class="btn btn-secondary">Lire la suite</a> #}
-				<a href="/posts?action=show&id={{ post.id }}" class="btn btn-secondary">Lire la suite</a>
-			{% endfor %}
+	<div class="fondposts">
+		<div class="container">
+			<div class="card">
+				<div class="card-header">
+					<h2>Nos derniers articles</h2>
+					<div "card-body">
+						{% for post in posts %}
+							<h5 class="card-title pt-3">{{ post.title }}</h5>
+							<p class="card-text">{{ post.chapo }}</p>
+							<p class="card-text">publié le {{ post.getDateUpdated}}</p>
+							<p class="card-text">par {{ post.author }}</p>
+							{# <a href="{{ path }}" class="btn btn-secondary">Lire la suite</a> #}
+							<a href="/posts?action=show&id={{ post.id }}" class="btn btn-secondary">Lire la suite</a>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 

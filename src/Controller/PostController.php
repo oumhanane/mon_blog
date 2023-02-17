@@ -2,25 +2,35 @@
 
 namespace App\Controller;
 
-use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 use App\ModelAbstract;
 use App\Model\PostModel;
+use App\Model\CommentModel;
+use Twig\Loader\FilesystemLoader;
+use App\Controller\AbstractController;
 
 final class PostController extends AbstractController {
+
+	/**
+	 * @var PostModel;
+	 */
+	private $postModel;
+	private $commentModel;
+
+	public function __construct() {
+		$this->postModel = new PostModel();
+		$this->commentModel = new CommentModel();	
+	}
 
 	public function indexAction() {
 		
 		// Se connecter à la bdd 
 		// Faire un select pour récupérer tous les articles et les affecter à la variable $posts
 
-
-		$postModel = new PostModel();
-		$posts = $postModel->findAll();
+		$posts = $this->postModel->findAll();
 		// var_dump($posts);
 		// die();
         $this->render('post/index.html.twig', ['posts' => $posts]);
-
 	}
 
 	/**
@@ -45,11 +55,13 @@ final class PostController extends AbstractController {
 	 */
 	public function showAction() {
 		$idPost = $_GET['id'];
-		$postModel = new PostModel();
-		$post = $postModel->findById($idPost);
-		//var_dump($_GET);
-		//die();
-		$this->render('post/show.html.twig', ['post' => $post]);
+		$post = $this->postModel->findById($idPost);
+		$comments = $this->commentModel->findCommentsByIdPost($idPost);
+
+		//instancier le CommentModel et appeler la méthode findCommentsByIdPost($idPost)
+		//afficher les commentaires dans la vue
+
+		$this->render('post/show.html.twig', ['post' => $post, 'comments' => $comments]);
 	}
 
 	/**
@@ -58,7 +70,18 @@ final class PostController extends AbstractController {
 	 * @return string
 	 */
 	public function createAction() {
-		return "Le create du controller postController";
+		if(count($_POST) > 0) {			
+			$title = $_POST["title"];
+			$chapo = $_POST["chapo"];
+			$content = $_POST["content"];
+			$author = $_POST["author"];
+			$created_at = $_POST["created_at"];
+			$this->postModel->createPost($title, $chapo, $content, $author, $created_at);
+			
+			return "Le create du controller postController";
+		} else {
+			$this->render('post/newpost.html.twig');
+		}
 	}
 
 	/**
@@ -78,6 +101,5 @@ final class PostController extends AbstractController {
 	public function deleteAction($postId = null) {
 		return "Le delete du controller postController";
 	}
-
 
 }

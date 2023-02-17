@@ -4,15 +4,12 @@ namespace App\Model;
 
 use PDO;
 
-class ModelAbstract
+abstract class ModelAbstract
 {
-    public ?PDO $database = null;
+    protected $pdo;
 
-    public function connect(): PDO {
-        if ($this->database === null) {
-            $this->database = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
-        }
+    public function __construct() {
+        $this->pdo = new \PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+    }
 
-        return $this->database;
-    }       
 }
